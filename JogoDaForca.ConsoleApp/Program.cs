@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿/*
 Requisitos
 1. Ao iniciar o jogo, deve ser selecionada uma palavra aleatória à partir de uma lista.
@@ -9,6 +10,9 @@ acaba.
 */
 
 namespace JogoDaForca.ConsoleApp;
+=======
+﻿namespace JogoDaForca.ConsoleApp;
+>>>>>>> e8a3a329bd6847f6b8a53dc8fc5842e15f8d0509
 class Program
 {
     static void Main(string[] args)
@@ -17,6 +21,7 @@ class Program
         {
             Console.Clear();
             Console.WriteLine("---------------------------");
+<<<<<<< HEAD
             Console.WriteLine("     Jogo da Forca");
             Console.WriteLine("---------------------------");
 
@@ -78,3 +83,24 @@ class Program
     }
 }
 
+=======
+            Console.WriteLine("Jogo da Forca:");
+            Console.WriteLine("---------------------------");
+
+            // 1. Inicio, deve ser selecionado uma palavra aleatoria de uma lista
+
+            Console.Write("Deseja continuar o jogo ? (S/N): ");
+            string? opcaoContinuar = Console.ReadLine()?.ToUpper();
+
+            JogoDaForca jogo = new JogoDaForca(palavra);
+            jogo.Jogar();
+        }
+    }
+
+    static string EscolherPalavraAleatoria()
+    {
+        Console.WriteLine
+    }
+
+}
+>>>>>>> e8a3a329bd6847f6b8a53dc8fc5842e15f8d0509
