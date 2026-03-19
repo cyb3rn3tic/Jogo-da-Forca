@@ -64,33 +64,33 @@ class Program
                 string palavraAleatoria = palavras[indiceAleatorio];
 
                 return palavraAleatoria;
-                
+
             }
             string palavraAleatoria = geraPalavraAleatoria();
 
-            //Console.WriteLine($"A palavra secreta é {geraPalavraAleatoria()}");
             //2. O jogador poderá chutar a palavra secreta letra por letra, cada letra certa deverá ser apresentada,
             //assim como as letras erradas.
 
             char[] dicaPalavra = new char[palavraAleatoria.Length]; // Inicializa o array de chute com o mesmo tamanho da palavra sorteada
+            
             for (int indiceDicaPalavra = 0; indiceDicaPalavra < dicaPalavra.Length; indiceDicaPalavra++) // Preenche o array de chute com underline para representar as letras não adivinhadas
             {
                 dicaPalavra[indiceDicaPalavra] = '_';
-                Console.Write(dicaPalavra[indiceDicaPalavra]);
+                //Console.Write(dicaPalavra[indiceDicaPalavra]);
                 //Console.ReadLine();
             }
 
             while (true)
-            {   
+            {
                 Console.WriteLine(dicaPalavra);
 
                 Console.Write("\nDigite uma letra: ");
                 string? letraDigitada = Console.ReadLine()?.ToUpper();
 
-
                 if (string.IsNullOrWhiteSpace(letraDigitada))
                 {
                     Console.WriteLine("Digite um caractere válido!");
+                    Console.ReadLine();
                     continue;
                 }
 
@@ -98,26 +98,21 @@ class Program
 
                 for (int indiceChar = 0; indiceChar <= palavraAleatoria.Length; indiceChar++)
                 {
-                    //if (letra == palavraAleatoria[indiceChar])
-                    //{
+                    //char letra = Convert.ToChar(letraDigitada);
+
                     char letraAtual = palavraAleatoria[indiceChar]; // se criou a variavel letraAtual para armazenar o caractere do indice
-                    Console.WriteLine(letraAtual);
+                    //Console.WriteLine(letraAtual);
 
                     if (letra == letraAtual)
                     {
-                        Console.WriteLine(letraAtual);
+                        //Console.WriteLine(letra);
                         dicaPalavra[indiceChar] = letraAtual; // se a letra digitada for igual a letra atual, substitui o underline pelo caractere correspondente
-                        
+
+               
                     }
-                    //}
                 }
 
             }
-
-            //Console.WriteLine(chute);
-
-            //Console.WriteLine("Digite uma letra: ");
-            //Console.ReadLine(Convert.ToChar);
 
             Console.Write("Deseja continuar o jogo ? (s/N): ");
             string? opcaoContinuar = Console.ReadLine()?.ToUpper();
