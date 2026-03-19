@@ -1,4 +1,5 @@
 ﻿/*
+/*
 Requisitos
 1. Ao iniciar o jogo, deve ser selecionada uma palavra aleatória à partir de uma lista.
 2. O jogador poderá chutar a palavra secreta letra por letra, cada letra certa deverá ser apresentada,
