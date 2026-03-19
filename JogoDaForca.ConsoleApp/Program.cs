@@ -23,53 +23,9 @@ class Program
             Console.WriteLine("---------------------------");
 
             // 1. Inicio, deve ser selecionado uma palavra aleatoria de uma lista
-            static string geraPalavraAleatoria()
-            {
-                string[] palavras = [
-                "ABACATE",
-                "ABACAXI",
-                "ACEROLA",
-                "AÇAÍ",
-                "ARAÇÁ",
-                "ABACATE",
-                "BACABA",
-                "BACURI",
-                "BANANA",
-                "CAJÁ",
-                "CAJÚ",
-                "CARAMBOLA",
-                "CUPUAÇU",
-                "GRAVIOLA",
-                "GOIABA",
-                "JABUTICABA",
-                "JENIPAPO",
-                "MAÇÃ",
-                "MANGABA",
-                "MANGA",
-                "MARACUJÁ",
-                "MURICI",
-                "PEQUI",
-                "PITANGA",
-                "PITAYA",
-                "SAPOTI",
-                "TANGERINA",
-                "UMBU",
-                "UVA",
-                "UVAIA"
-            ];
-
-                int indiceAleatorio = new Random().Next(palavras.Length);
-
-                string palavraAleatoria = palavras[indiceAleatorio];
-
-                return palavraAleatoria;
-
-            }
+            
 
             string palavraAleatoria = geraPalavraAleatoria();
-
-            //2. O jogador poderá chutar a palavra secreta letra por letra, cada letra certa deverá ser apresentada,
-            //assim como as letras erradas.
 
             char[] dicaPalavra = new char[palavraAleatoria.Length]; // Inicializa o array de chute com o mesmo tamanho da palavra sorteada
 
@@ -78,6 +34,8 @@ class Program
                 dicaPalavra[indiceDicaPalavra] = '_';
             }
 
+            //2. O jogador poderá chutar a palavra secreta letra por letra, cada letra certa deverá ser apresentada,
+            //assim como as letras erradas.
             bool jogadorGanhou = false;
             bool jogadorPerdeu = false;
 
@@ -156,5 +114,107 @@ class Program
                 break;
             }
         }
+    }
+    static void preencherAcertadas()
+    {
+        char[] dicaPalavra = new char[palavraAleatoria.Length]; // Inicializa o array de chute com o mesmo tamanho da palavra sorteada
+
+            for (int indiceDicaPalavra = 0; indiceDicaPalavra < dicaPalavra.Length; indiceDicaPalavra++) // Preenche o array de chute com underline para representar as letras não adivinhadas
+            {
+                dicaPalavra[indiceDicaPalavra] = '_';
+            }
+    }
+
+    static void DesenharForca(int quantidadeErros)
+    {
+        Console.Clear();
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Jogo da Forca");
+        Console.WriteLine("---------------------------------");
+
+        if (quantidadeErros == 0)
+        {
+            Console.WriteLine(@" ___________        ");
+            Console.WriteLine(@" |/        |        ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@"_|____              ");
+        }
+
+        else if (quantidadeErros == 1)
+        {
+            Console.WriteLine(@" ___________        ");
+            Console.WriteLine(@" |/        |        ");
+            Console.WriteLine(@" |         o        ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@"_|____              ");
+        }
+
+        else if (quantidadeErros == 2)
+        {
+            Console.WriteLine(@" ___________        ");
+            Console.WriteLine(@" |/        |        ");
+            Console.WriteLine(@" |         o        ");
+            Console.WriteLine(@" |         |        ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@"_|____              ");
+        }
+
+        else if (quantidadeErros == 3)
+        {
+            Console.WriteLine(@" ___________        ");
+            Console.WriteLine(@" |/        |        ");
+            Console.WriteLine(@" |         o        ");
+            Console.WriteLine(@" |        /|        ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@"_|____              ");
+        }
+
+        else if (quantidadeErros == 4)
+        {
+            Console.WriteLine(@" ___________        ");
+            Console.WriteLine(@" |/        |        ");
+            Console.WriteLine(@" |         o        ");
+            Console.WriteLine(@" |        /|\       ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@"_|____              ");
+        }
+
+        else if (quantidadeErros == 5)
+        {
+            Console.WriteLine(@" ___________        ");
+            Console.WriteLine(@" |/        |        ");
+            Console.WriteLine(@" |         o        ");
+            Console.WriteLine(@" |        /|\       ");
+            Console.WriteLine(@" |        / \       ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@" |                  ");
+            Console.WriteLine(@"_|____              ");
+        }
+
+        Console.WriteLine("---------------------------------");
+    }
+
+    static bool JogadorDesejaContinuar()
+    {
+        Console.Write("Deseja continuar o jogo? (s/N): ");
+        string? opcaoContinuar = Console.ReadLine()?.ToUpper();
+
+        if (opcaoContinuar != "S")
+            return false;
+
+        return true;
     }
 }
